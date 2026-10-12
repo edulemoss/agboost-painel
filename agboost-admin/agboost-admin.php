@@ -3,7 +3,7 @@
  * Plugin Name: AgBoost Painel
  * Plugin URI:  https://agboost.com.br
  * Description: Login com a marca do cliente, painel simples para quem administra a loja, suporte AgBoost, segurança básica e atualização automática.
- * Version:     2.0.0
+ * Version:     2.0.1
  * Author:      AgBoost
  * Author URI:  https://agboost.com.br
  * Requires at least: 6.0
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'AGBOOST_PAINEL_VERSAO', '2.0.0' );
+define( 'AGBOOST_PAINEL_VERSAO', '2.0.1' );
 define( 'AGBOOST_PAINEL_DIR', plugin_dir_path( __FILE__ ) );
 define( 'AGBOOST_PAINEL_URL', plugin_dir_url( __FILE__ ) );
 

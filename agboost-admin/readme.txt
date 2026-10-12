@@ -3,12 +3,14 @@ Contributors: agboost
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 
 Login com a marca do cliente, painel simples, suporte AgBoost, segurança básica e atualização automática.
 
 == Changelog ==
+= 2.0.1 =
+* XML-RPC fechado de verdade (lista de métodos vazia e sem cabeçalho de pingback), exceto quando o Jetpack está ativo.
 = 2.0.0 =
 * Login com o logo e as cores do cliente (Configurações › AgBoost Painel), AgBoost discreta no rodapé.
 * Suporte pelo WhatsApp (49) 99909-2270 (o 4848 foi desativado).
