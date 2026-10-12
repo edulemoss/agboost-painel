@@ -10,17 +10,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 // XML-RPC é porta de ataque de força bruta e quase nenhum site de cliente usa.
 // «xmlrpc_enabled» sozinho só bloqueia o que exige login; a lista de métodos e o pingback seguem abertos.
 // Por isso a lista de métodos vai vazia. Exceção: se o Jetpack estiver ativo, ele precisa do XML-RPC.
-if ( ! defined( 'JETPACK__VERSION' ) ) {
-	add_filter( 'xmlrpc_enabled', '__return_false' );
-	add_filter( 'xmlrpc_methods', fn() => array() );
-	add_filter(
-		'wp_headers',
-		function ( $cabecalhos ) {
-			unset( $cabecalhos['X-Pingback'] );
-			return $cabecalhos;
-		}
-	);
+// A checagem do Jetpack é feita na hora (dentro das funções), porque este plugin carrega antes dele.
+function agboost_xmlrpc_liberado() {
+	return defined( 'JETPACK__VERSION' );
 }
+add_filter( 'xmlrpc_enabled', fn( $v ) => agboost_xmlrpc_liberado() ? $v : false );
+add_filter( 'xmlrpc_methods', fn( $m ) => agboost_xmlrpc_liberado() ? $m : array() );
+add_filter(
+	'wp_headers',
+	function ( $cabecalhos ) {
+		if ( ! agboost_xmlrpc_liberado() ) {
+			unset( $cabecalhos['X-Pingback'] );
+		}
+		return $cabecalhos;
+	}
+);
 
 // Não anuncia a versão do WordPress no código da página.
 add_filter( 'the_generator', '__return_empty_string' );

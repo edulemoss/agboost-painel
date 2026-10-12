@@ -3,12 +3,14 @@ Contributors: agboost
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 
 Login com a marca do cliente, painel simples, suporte AgBoost, segurança básica e atualização automática.
 
 == Changelog ==
+= 2.0.2 =
+* A exceção do Jetpack para o XML-RPC passa a ser checada na hora (o plugin carrega antes do Jetpack).
 = 2.0.1 =
 * XML-RPC fechado de verdade (lista de métodos vazia e sem cabeçalho de pingback), exceto quando o Jetpack está ativo.
 = 2.0.0 =
